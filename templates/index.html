@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title%}
+Homepage
+{% endblock %}
+
+{% block main %}
+<h1>Find your future Roomee!</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for p in profile %}
+  <div class="col" style="width: auto">
+    <div class="card w-100">
+      <img class="card-img-top" src="{{ p["Icon"] }}" alt="Profile_Picture">
+      <div class="card-body">
+        <h5 class="card-title">{{ p["Name"] }} ({{ p["Username"] }})</h5>
+        <p class="card-text">
+          <table class="table table-striped" style="text-align: left; width: auto">
+              <tr>
+                <th>Occupation:</th>
+                <td>{{ p["Occupation"] }}</td>
+              </tr>
+              <tr>
+                <th>Host/Sublet:</th>
+                <td>{{ p["Posting"] }}</td>
+              </tr>
+              <tr>
+                <th>Looking for:</th>
+                <td>{{ p["Room"] }}</td>
+              </tr>
+              <tr>
+                <th>Price range:</th>
+                <td>{{ p["Rent"] }}</td>
+              </tr>
+              <tr>
+                <th>Hobbies:</th>
+                <td>{{ p["Hobbies"] }}</td>
+              </tr>
+          </table>
+        </p>
+      </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Send a Message
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped" style="text-align: left"><form action="/msg" method="post">
+    <tr>
+        <th>To:</th>
+        <td>
+            <input type="text" class="form-control" name="recipient" placeholder="Recipient's username"></td>
+    </tr>
+    <tr>
+        <th>Message:</th>
+        <td><textarea input="text" class="form-control" name="msg" rows="5"></textarea></td>
+    </tr>
+
+</table>
+<button class="btn btn-primary" type="submit">Send</button>
+</form>
+{% endblock %}

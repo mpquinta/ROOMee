@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title%}
+My Profile
+{% endblock %}
+
+{% block main %}
+<div class="card_profile">
+  <img src="{{ profile_pic }}" alt="Profile_Image">
+  <div class="card-body">
+  <table class="table table-striped" style="text-align: left;">
+    {% for p in profile %}
+    <tr>
+      <th>Name:</th>
+      <td>{{ p["Name"] }}</td>
+    </tr>
+    <tr>
+      <th>Occupation:</th>
+      <td>{{ p["Occupation"] }}</td>
+    </tr>
+    <tr>
+      <th>Host/Sublet:</th>
+      <td>{{ p["Posting"] }}</td>
+    </tr>
+    <tr>
+      <th>Looking for:</th>
+      <td>{{ p["Room"] }}</td>
+    </tr>
+    <tr>
+      <th>Price range:</th>
+      <td>{{ p["Rent"] }}</td>
+    </tr>
+    <tr>
+      <th>Hobbies:</th>
+      <td>{{ p["Hobbies"] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+</div>
+
+<a href="/editprofile">Edit profile</a>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Inbox
+{% endblock %}
+
+{% block main %}
+<h2>Inbox</h2>
+{% for m in msgs %}
+<button class="accordion">From: {{ m["sender"] }} on {{ m["timestamp"] }}</button>
+<div class="panel">
+    <p>{{ m["msg"] }}</p>
+    <b>Reply</b><br>
+    <form action="/inbox" method="post">
+      <input type="hidden" name="msg_orig" value="{{ m["sender"] }}">
+      <textarea input="text" class="forum" name="msg_reply" rows="5"></textarea><br>
+      <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+</div>
+{% endfor %}
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title%}
+Register
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped" style="text-align: left">
+<form action="/register" method="post" enctype="multipart/form-data">
+    <tr>
+        <th>Name:</th>
+        <td><input type="text" class="form-control" name="name" placeholder="Full name"></td>
+    </tr>
+    <tr>
+      <th>Username:</th>
+      <td><div class="form-group"><input autocomplete="off" autofocus class="form-control" type="text" name="username"></div></td>
+    </tr>
+    <tr>
+        <th>Password:</th>
+        <td><div class="form-group">
+        <input focus class="form-control" type="password" name="password">
+        </div></td>
+    </tr>
+    <tr>
+        <th>Password (again):</th>
+        <td><div class="form-group">
+        <input focus class="form-control" type="password" name="password2">
+        </div></td>
+    </tr>
+    <tr>
+        <th>Profile picture:</th>
+        <td><div class="form-group">
+        <input type="file" name="profileImage" accept="image/">
+        </div></td>
+    </tr>
+    <tr>
+        <th>Occupation:</th>
+        <td><input type="text" class="form-control" name="occupation"></td>
+    </tr>
+  <tr>
+    <th>Posting in regards to:</th>
+    <td>
+      <input class="form-check-input" type="radio" name="posting" id="postingOption1" value="Room availability">
+      <label class="form-check-label" for="postingOption1">
+        Room availability
+      </label><br>
+      <input class="form-check-input" type="radio" name="posting" id="postingOption2" value="Seeking housing">
+      <label class="form-check-label" for="postingOption2">
+        Seeking housing
+      </label>
+  </tr>
+  <tr>
+    <th>Living Arrangement:</th>
+    <td>
+      <input class="form-check-input" type="radio" name="room" id="roomOption1" value="Single">
+      <label class="form-check-label" for="roomOption1">
+        Single
+      </label><br>
+      <input class="form-check-input" type="radio" name="room" id="roomOption2" value="Double">
+      <label class="form-check-label" for="roomOption2">
+        Double
+      </label><br>
+      <input class="form-check-input" type="radio" name="room" id="roomOption3" value="Triple">
+      <label class="form-check-label" for="roomOption3">
+        Triple
+      </label><br>
+    </td>
+  </tr>
+  <tr>
+    <th>Rent Range:</th>
+    <td><div class="form-group">
+      <select class="form-control" name="rent">
+        <option>$500-$700</option>
+        <option>$800-$1,000</option>
+      </select>
+    </div></td>
+  </tr>
+  <tr>
+    <th>Hobbies:</th>
+    <td><textarea input="text" class="form-control" name="hobbies" rows="2"></textarea></td>
+  </tr>
+</table>
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+{% endblock %}

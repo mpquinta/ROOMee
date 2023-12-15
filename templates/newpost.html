@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+New Post
+{% endblock %}
+
+{% block main %}
+<h1>Add a new post!</h1>
+<table class="table table-striped" style="text-align: left"><form action="/newpost" method="post">
+    <tr>
+        <th>Subject:</th>
+        <td><input type="text" class="forum" name="subject"></td>
+    </tr>
+    <tr>
+        <th>Body:</th>
+        <td><textarea input="text" class="forum" name="body" rows="10"></textarea></td>
+    </tr>
+</table>
+    <button class="btn btn-primary" type="submit">Post</button>
+</form>
+{% endblock %}

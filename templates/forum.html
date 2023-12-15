@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Forum
+{% endblock %}
+
+{% block main %}
+<a href="/newpost" class="btn btn-primary">Compose a new post</a>
+
+<br><br><br>
+
+{% for f in forums %}
+<div class="card">
+  {% if f["subject"] != None: %}
+  <div class="card-header">
+    Posted by <b>{{ f["author"] }} on {{ f["timestamp"] }}</b>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ f["subject"] }}</h5>
+    <p class="card-text">{{ f["body"] }}</p>
+  </div>
+  <div class="card-header">Comments</div>
+  <div class="card-body">
+    <form action="/forum" method="post">
+      <input type="hidden" name="table_name" value="{{ f["table"] }}">
+      <textarea input="text" class="forum" name="comment" rows="5"></textarea><br>
+      <button class="btn btn-primary" type="submit">Comment</button>
+    </form>
+  </div>
+    {% endif %}
+
+  <div class="card-body">
+    {% if f["comments"] != None %}
+    <b>{{ f["sender"] }} wrote on {{ f["timestamp"] }}</b> - {{ f["comments"] }}
+    {% endif %}
+  </div>
+</div>
+<br>
+{% endfor %}
+
+{% endblock %}
